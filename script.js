@@ -6,10 +6,13 @@ const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
+const btnModal = document.querySelector('.btn--modal');
 const current0El = document.getElementById('current--0');
 const current1El = document.getElementById('current--1');
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
+const modalWindow = document.querySelector('.modal');
+const current = document.querySelector('.current');
 // const score0El = document.getElementById('current--0');
 // const score1El = document.getElementById('current--1');
 let score = [0, 0];
@@ -32,6 +35,7 @@ const switchPlayer = function () {
 };
 
 const roll = function () {
+  btnModal.classList.add('hidden');
   if (playing) {
     //Generating a random dice roll
     let dice = Math.trunc(Math.random() * 6) + 1;
@@ -53,6 +57,7 @@ const roll = function () {
   }
 };
 const hold = function () {
+  btnModal.classList.add('hidden');
   if (playing) {
     score[`${activePlayer}`] += currentScore;
     document.getElementById(`score--${activePlayer}`).textContent =
@@ -89,18 +94,26 @@ const newGame = function () {
   player0El.classList.remove('player--winner');
   player1El.classList.remove('player--winner');
   playing = true;
+  modalWindow.classList.add('hidden');
+  btnModal.classList.add('hidden');
+  btnHold.classList.remove('hidden');
+  btnRoll.classList.remove('hidden');
+  current.classList.remove('hidden');
+};
+
+const modal = function () {
+  modalWindow.classList.remove('hidden');
+  btnModal.classList.add('hidden');
 };
 
 //Rolling doce functionality
 btnRoll.addEventListener('click', roll);
 btnHold.addEventListener('click', hold);
 btnNew.addEventListener('click', newGame);
+btnModal.addEventListener('click', modal);
 
 /*
-Wyskakujące okienko kto wygrał
-Zmiana tła w zależności od tego który gracz ma turę
-Przycisk (newgame)na wyskakujacym okienku 
 Możliwość wpisania nazw graczy
-Wyskakujące okienko z instrukcją gry
-zmienić żeby wygrywało się od 100pkt a nie od 20
+Wyskakujące okienko kto wygrał
+Napisać instrukcję do gry
 */

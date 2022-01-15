@@ -131,12 +131,18 @@ main {
 
 .btn--new {
   top: 4rem;
+  z-index: 3;
 }
 .btn--roll {
   top: 39.3rem;
 }
 .btn--hold {
   top: 46.1rem;
+}
+
+.btn--modal {
+  left: 50%;
+  top: 38%;
 }
 
 .btn:active {
@@ -169,3 +175,20 @@ main {
 .hidden {
   display: none;
 }
+
+.modal {
+  position: absolute;
+  top: 5%;
+  left: 12.5%;
+  width: 75%;
+  height: 90%;
+  background-color: rgba(11, 121, 70, 0.96);
+  z-index: 2;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 900;
+  padding: 10% 3% 2%;
+}
+
+/* backdrop-filter: blur(3px); */

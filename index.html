@@ -9,6 +9,15 @@
   </head>
   <body>
     <main>
+      <div class="modal hidden">
+        <p>
+          <dl>
+            <dt>Click roll dice. Your score from dice will be added to your current score. You can roll dice as many times as you want but shun if you roll 1, you lost all current points which you picked until now (you don't lost your solid point) and it is end of your turn. You also can solid pick your points, so click hold -> now it is end of your turn but you have solid points. The winner is player who pick 100 solid points.</dt>
+            <dt>Now click New Game button. Have a good play!😃</dt>
+          </dl>
+          <!-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting -->
+        </p>
+      </div>
       <section class="player player--0 player--active">
         <h2 class="name" id="name--0">Player 1</h2>
         <p class="score" id="score--0">43</p>
@@ -30,6 +39,7 @@
       <button class="btn btn--new">🔄 New game</button>
       <button class="btn btn--roll">🎲 Roll dice</button>
       <button class="btn btn--hold">📥 Hold</button>
+      <button class="btn btn--modal">🧐How to play?</button>
     </main>
     <script src="script.js"></script>
   </body>
