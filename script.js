@@ -13,6 +13,9 @@ const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
 const modalWindow = document.querySelector('.modal');
 const current = document.querySelector('.current');
+const winner = document.querySelector('.winner');
+const winner0 = document.getElementById('winner--0');
+const winner1 = document.getElementById('winner--1');
 // const score0El = document.getElementById('current--0');
 // const score1El = document.getElementById('current--1');
 let score = [0, 0];
@@ -65,6 +68,12 @@ const hold = function () {
     if (score[`${activePlayer}`] >= 100) {
       console.log(`Player ${activePlayer + 1} win!`);
       //wyskakujące okienko
+      if (activePlayer === 0) {
+        winner0.classList.remove('hidden');
+      } else {
+        winner1.classList.remove('hidden');
+      }
+
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
@@ -99,6 +108,10 @@ const newGame = function () {
   btnHold.classList.remove('hidden');
   btnRoll.classList.remove('hidden');
   current.classList.remove('hidden');
+  winner.classList.add('hidden');
+  winner1.classList.add('hidden');
+  //winner0.classlist.add('hidden');
+  //winner1.classlist.add('hidden');
 };
 
 const modal = function () {
@@ -114,6 +127,4 @@ btnModal.addEventListener('click', modal);
 
 /*
 Możliwość wpisania nazw graczy
-Wyskakujące okienko kto wygrał
-Napisać instrukcję do gry
 */
