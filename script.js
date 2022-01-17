@@ -126,5 +126,6 @@ btnNew.addEventListener('click', newGame);
 btnModal.addEventListener('click', modal);
 
 /*
+total score and current score
 Możliwość wpisania nazw graczy
 */
