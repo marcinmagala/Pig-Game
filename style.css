@@ -145,7 +145,25 @@ main {
   top: 38%;
 }
 
+.btn--help {
+  position: absolute;
+  left: 2.5%;
+  top: 0.9%;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 2.5rem;
+  transition: all 0.2s;
+  transform: translateX(-50%);
+  border-radius: 50rem;
+}
+
 .btn:active {
+  transform: translate(-50%, 3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn--help:active {
   transform: translate(-50%, 3px);
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
 }
@@ -182,7 +200,7 @@ main {
   left: 12.5%;
   width: 75%;
   height: 90%;
-  background-color: rgba(11, 121, 70, 0.96);
+  background-color: rgba(200, 128, 8, 0.96);
   z-index: 2;
   border-radius: 20px;
   text-align: center;
@@ -198,7 +216,7 @@ main {
   width: 30%;
   height: 20%;
   background-color: rgba(11, 121, 70, 0.96);
-  z-index: 2;
+  z-index: 1;
   border-radius: 20px;
   text-align: center;
   font-size: 25px;
@@ -209,4 +227,3 @@ main {
 #winner--1 {
   left: 60%;
 }
-/* backdrop-filter: blur(3px); */

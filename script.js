@@ -7,6 +7,7 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 const btnModal = document.querySelector('.btn--modal');
+const btnHelp = document.querySelector('.btn--help');
 const current0El = document.getElementById('current--0');
 const current1El = document.getElementById('current--1');
 const player0El = document.querySelector('.player--0');
@@ -16,14 +17,13 @@ const current = document.querySelector('.current');
 const winner = document.querySelector('.winner');
 const winner0 = document.getElementById('winner--0');
 const winner1 = document.getElementById('winner--1');
-// const score0El = document.getElementById('current--0');
-// const score1El = document.getElementById('current--1');
+
+//Starting condition
 let score = [0, 0];
 let currentScore = 0;
 let activePlayer = 0;
 let playing = true;
 
-//Starting condition
 score0El.textContent = 0;
 score1El.textContent = 0;
 diceEl.classList.add('hidden');
@@ -42,17 +42,14 @@ const roll = function () {
   if (playing) {
     //Generating a random dice roll
     let dice = Math.trunc(Math.random() * 6) + 1;
-    //console.log(dice);
+
     diceEl.classList.remove('hidden');
     diceEl.src = `dice-${dice}.png`;
-    //   current0 = current0 + dice;
-    //   console.log(current0);
-    //   current0.textContent = 'current0';
+
     if (dice !== 1) {
       currentScore += dice;
       document.getElementById(`current--${activePlayer}`).textContent =
         currentScore;
-      //console.log(currentScore);
     } else {
       //switchplayer
       switchPlayer();
@@ -110,22 +107,21 @@ const newGame = function () {
   current.classList.remove('hidden');
   winner.classList.add('hidden');
   winner1.classList.add('hidden');
-  //winner0.classlist.add('hidden');
-  //winner1.classlist.add('hidden');
 };
 
+//manual
 const modal = function () {
   modalWindow.classList.remove('hidden');
   btnModal.classList.add('hidden');
 };
 
-//Rolling doce functionality
+const help = function () {
+  modalWindow.classList.toggle('hidden');
+};
+
+//every buttons
 btnRoll.addEventListener('click', roll);
 btnHold.addEventListener('click', hold);
 btnNew.addEventListener('click', newGame);
 btnModal.addEventListener('click', modal);
-
-/*
-total score and current score
-Możliwość wpisania nazw graczy
-*/
+btnHelp.addEventListener('click', help);
